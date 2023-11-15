@@ -2,7 +2,7 @@
 
 It takes text data and converts it into vectors before training it with a machine learning model.
 
-link colab : https://colab.research.google.com/drive/1WfxCi8Vl1DkTb4Evaa30ntdRDHQXZTMI?usp=sharing <br>
+colab : https://colab.research.google.com/drive/1WfxCi8Vl1DkTb4Evaa30ntdRDHQXZTMI?usp=sharing <br>
 sentence transformers : https://www.sbert.net/ <br>
 kaggle : https://www.kaggle.com/competitions/fake-news/overview <br>
 - Score: 0.87335 <br>
