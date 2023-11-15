@@ -3,24 +3,25 @@
 It takes text data and converts it into vectors before training it with a machine learning model.
 
 link colab : https://colab.research.google.com/drive/1WfxCi8Vl1DkTb4Evaa30ntdRDHQXZTMI?usp=sharing <br>
-kaggle : https://www.kaggle.com/competitions/fake-news/leaderboard
+kaggle : https://www.kaggle.com/competitions/fake-news/leaderboard <br>
+sentence transformers : https://www.sbert.net/ <br>
 
-<h4> How to install environment <br>
+How to install environment <br>
 
 ```
 PYTHON VERSION = 3.9.16 
 pip install -r requirements.txt
 ```
 
-<h4> Model Embeddings
+Model Embeddings
   
 ```
 from sentence_transformers import SentenceTransformer
 model = SentenceTransformer('all-MiniLM-L6-v2')
 ```
 
-<h5> Model Machine Learning <br>
-<br> <p> Sklearn : Multilayer Perceptron Classifier (MLP)
+Model Machine Learning <br>
+- Sklearn : Multilayer Perceptron Classifier (MLP)
   
 ```
 from sentence_transformers import SentenceTransformer
