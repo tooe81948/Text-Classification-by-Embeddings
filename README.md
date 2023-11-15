@@ -8,7 +8,9 @@ kaggle : https://www.kaggle.com/competitions/fake-news/overview <br>
 - Score: 0.87335 <br>
 - Public score: 0.85833 <br>
 
-<img src="./image/score.png" alt="H200 TPS" width="500" height="auto">
+<img src="./image/score.png" alt="SOCRE KAGGLE" width="auto" height="auto">
+
+<br>
 
 ---
 
