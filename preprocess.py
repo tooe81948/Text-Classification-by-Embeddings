@@ -2,7 +2,7 @@ import re
 import emoji
 from pythainlp import word_tokenize
 
-class Preprocess():
+class preprocess():
     def __init__(self):
         pass
 
@@ -19,7 +19,8 @@ class Preprocess():
     def replace_rep(self,text):
         def _replace_rep(m):
             c,cc = m.groups()
-            return f'{c}xxrep'
+            return f'{c}'
+            # return f'{c}xxrep'
         re_rep = re.compile(r'(\S)(\1{2,})')
         return re_rep.sub(_replace_rep, text)
 
@@ -33,13 +34,35 @@ class Preprocess():
                 res.append(tok)
         return res
 
+    def reWord(self,text):
+      replace_word = ' −˜=ðắồ,ö‐—ĩŇŘŤŴŽå/η’;[]\·ႆး$%^&*()_+-~`“”๑๒๓๔฿๕๖๗๘๙↑ʻ–⋅←àìĕ̤ṳ̄нхчйودیëӑɔŋދިވެހބަސްάòفسõøçᓄᒃᑎᑐᑦລາວųāമലയാളംꯃꯤꯇꯩꯂꯣꯟ×éè±!'
+      try:
+        for idx , data in enumerate(text):
+          for i in replace_word:
+            data = data.replace( i , '' )
+          text[idx] = data
+      except:
+        for i in replace_word:
+            text = text.replace( i , '' )
+      return text
+
+    def detect_language(self,text):
+        lang, confidence = langid.classify(text)
+        return lang
+
     def process_text(self,text):
         res = text.lower().strip()
-        res = self.replace_url(res)
-        res = self.replace_rep(res)
+        lang = self.detect_language(res)
+        if lang == "th":
+          res = text.replace("\n","")
+          res = self.replace_url(res)
+          res = self.reWord(res)
+          res = self.replace_rep(res)
 
-        res = [word for word in word_tokenize(res) if word and not re.search(pattern=r"\s+", string=word)]
-        res = self.ungroup_emoji(res)
+          res = [word for word in word_tokenize(res, engine='attacut', join_broken_num=True, keep_whitespace=False) if word and not re.search(pattern=r"\s+", string=word)]
+          res = self.ungroup_emoji(res)
+        else:
+          res = res.split(" ")
 
         return res
 
